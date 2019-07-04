@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <title>♥UwU Counter♥</title>
+        <style>
+        p{
+            text-align: center;
+        }
+        </style>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            var UwuCount = Cookies.get('uwus')
+            if (UwuCount == undefined || UwuCount == null || UwuCount == 0){
+                Cookies.set('uwus', 0)
+                UwuCount = Cookies.get('uwus')
+            }
+            function AddUwu(){
+                UwuCount++
+                Cookies.set('uwus', UwuCount)
+                document.getElementById('Number').innerHTML = UwuCount
+            }
+        </script>
+        <p>
+            <p id="Number"></p>
+            <script>document.getElementById('Number').innerHTML = UwuCount</script>
+            <p><input type="button" name="click" value="uwu" id="click" onclick="AddUwu();"/></p>
+        </p>
+        
+
+    </body>
+
+</html>
