@@ -3,32 +3,81 @@
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <title>♥UwU Counter♥</title>
         <style>
-        p{
-            text-align: center;
+        html {
+            height:100vh;
+            overflow: hidden;
+            margin:0;
+            background-image: url(background.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
+        body{
+            margin:0;
+            height:100%;
+            width:100%;
+            text-align: center;
+            position: absolute;
+        }
+        #Number{
+            width: auto;
+            font-size: 250%;
+            color: #ffffff;
+            text-shadow: 1px 1px #000000;
+            background-color: rgba(255, 0, 255, 0.25);
+        }
+        #main{
+            top:30%;
+            width:200px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #uwuplus{
+            background:    #ee99ac;
+            background:    linear-gradient(#ee99ac, #84cef3);
+            border:        3px solid #ffffff;
+            border-radius: 1000px;
+            box-shadow:    2px 2px #444444;
+            width:         200px;
+            height:        200px;
+            color:         #ffffff;
+            font:          normal bold 24px/200px "Open Sans", sans-serif;
+            text-align:    center;
+            text-shadow:   1px 1px #999999;
+        }
+        #uwuplus:active{
+            box-shadow: 0px 0px #000000;
+            color:#EEEEEE;
+            transform: translateY(2px) translateX(2px)
+
+
+        }
+        
         </style>
     </head>
-
+    <script type="text/javascript">
+        var UwuCount = Cookies.get('uwus')
+        if (UwuCount == undefined || UwuCount == null || UwuCount == 0){
+            Cookies.set('uwus', 0)
+            UwuCount = Cookies.get('uwus')
+        }
+        function AddUwu(){
+            UwuCount++
+            Cookies.set('uwus', UwuCount)
+            document.getElementById('Number').innerHTML = UwuCount
+        }
+    </script>
     <body>
-        <script type="text/javascript">
-            var UwuCount = Cookies.get('uwus')
-            if (UwuCount == undefined || UwuCount == null || UwuCount == 0){
-                Cookies.set('uwus', 0)
-                UwuCount = Cookies.get('uwus')
-            }
-            function AddUwu(){
-                UwuCount++
-                Cookies.set('uwus', UwuCount)
-                document.getElementById('Number').innerHTML = UwuCount
-            }
-        </script>
-        <p>
-            <p id="Number"></p>
-            <script>document.getElementById('Number').innerHTML = UwuCount</script>
-            <p><input type="button" name="click" value="uwu" id="click" onclick="AddUwu();"/></p>
-        </p>
-        
+            <div id="Number"></div>
+        <div id="main">
 
+            <br>
+            <input type="button" name="click" value="uwu" id="uwuplus" onclick="AddUwu();"/>
+        </div>
+        <script>document.getElementById('Number').innerHTML = UwuCount</script>
     </body>
 
 </html>
